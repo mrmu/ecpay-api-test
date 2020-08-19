@@ -92,12 +92,19 @@ $mac = ECPayGenCheckMac($use_params, $HashKey, $HashIV, 1);
                     </select>
                     <label>Merchant Member ID：(如：<?php echo $MerchantID;?>A0001) </label>
                     <input type="text" class="form-control" name="MerchantMemberID" value="<?php echo $MerchantMemberID;?>" placeholder="通常是 Merchant ID + 網站會員ID">
+
                     <label>Merchant Trade No：(timestamp, 每次呼叫都要不同) </label>
                     <input type="text" class="form-control" name="MerchantTradeNo" value="<?php echo $MerchantTradeNo;?>">
+
+                    <label>Card ID：(解除綁定時填寫) </label>
+                    <input type="text" class="form-control" name="CardID" value="<?php echo $CardID;?>">
+
                     <button type="submit" class="btn btn-secondary">取得參數</button>
                 </form>
 
-                <?php if(!empty($api) && !empty($MerchantMemberID)): ?>
+                <?php if(!empty($api) && !empty($MerchantMemberID)): 
+                    echo 'API: '.$api;
+                    ?>
 
                 <form id="__ecpayForm" method="post" target="_self" action="<?php echo $ServiceURL;?>">
                 <?php
